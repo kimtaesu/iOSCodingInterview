@@ -134,3 +134,14 @@ DispatchGroup은 작업의 집계 동기화를 허용합니다. 여러 대기열
 ### 39- Explain the difference between atomic and nonatomic synthesized properties
 1. atomic : 기본 동작입니다. 오브젝트가 원자 적으로 선언되면 스레드로부터 안전합니다. thread-safe는, 그 클래스의 특정의 인스턴스의 1 개의 thread 만, 그 객체를 제어 할 수있는 것을 의미합니다.
 2. nonatomic : 스레드로부터 안전하지 않습니다. 비 원자 속성 속성을 사용하여 합성 된 접근자가 단순히 값을 직접 설정하거나 반환하도록 지정할 수 있습니다.이 경우 동일한 값이 다른 스레드에서 동시에 액세스되는 경우 어떤 일이 발생하는지 보장하지 않습니다. 이러한 이유 때문에 원자가 아닌 속성에 액세스하는 것이 더 빠릅니다.
+
+
+### 19- What is intrinsic content size?
+자체 콘텐츠 크기
+
+### 32- KVO VS NotificationCenter ?
+KVO와 NotificationCenter의 가장 큰 차이점은 KVO가 특정 개체에 대한 특정 변경 사항을 추적하는 반면 NotificationCenter는 일반 이벤트를 추적하는 데 있습니다.
+
+### 49- What’s the difference between a xib and a storyboard?
+1. xib는 하나의 View 또는 View Controller 화면을 정의
+2. Storyboard는 많은 View Controller를 보여주고 그 사이의 관계를 보여줍니다.
