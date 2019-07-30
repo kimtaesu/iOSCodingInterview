@@ -90,3 +90,47 @@ iTunes Connect에 업로드하는 앱은 App Store에서 컴파일되고 연결�
 3. Parent: viewDidLayoutSubviews
 4. Parent: viewWillLayoutSubviews
 5. Parent: viewDidLayoutSubviews
+
+### 38- What is the difference between LLVM and Clang?
+프런트 엔드 (Clang)는 소스 코드를 가져 와서 추상 구문 트리 (LLVM IR)를 생성합니다.
+
+
+### 42- When and why do we use an object as opposed to a struct?
+Structs: value type
+Classes: reference type
+
+### Content Hugging & Compression Resistance
+1. Content Hugging은 고유 사이즈의 최대 크기에 제한을 두는 것입니다
+> Hugging의 우선순위 1000이 제약의 우선순위 900보다 크므로 레이블의 크기는 최대 108보다 커지지 않게 됩니다.
+2. Compression Resistance는 최소 크기에 제한을 두는 것입니다.
+> Resistance의 우선순위 1000이 제약의 우선순위 900보다 크므로 너비의 고유 값인 108보다 작아지지 않게 됩니다.
+
+### iOS 앱의 상태는 무엇입니까?
+1. *Non-running*: not running
+2. *Inactive*: 앱이 포 그라운드에서 실행 중이지만 이벤트를받지 못했습니다. 예를 들어 통화 또는 SMS 메시지를받을 때 비활성 상태로 설정할 수 있습니다.
+3. *Active*: 앱이 포 그라운드에서 실행되고 이벤트를 수신 중입니다.
+4. *Background*: 앱이 백그라운드에서 실행되고 코드가 실행 중입니다.
+5. *Suspended*: 앱이 백그라운드에 있지만 코드가 실행되고 있지 않습니다.
+
+### 2- What kind of JSONSerialization have ReadingOptions?
+1. *mutableContainers*: arrays and dictionaries 이 상수가 아닌 변수 객체로 만들어 지도록 지정합니다.
+2. *mutableLeaves*: JSON 객체 그래프의 리프 문자열을 variable String의 인스턴스로 생성하도록 지정합니다.
+3. *allowFragments*: 파서가 Array 또는 Dictionary의 인스턴스가 아닌 최상위 수준의 객체를 허용하도록 지정합니다.
+
+### 4- What is DispatchGroup?
+DispatchGroup은 작업의 집계 동기화를 허용합니다. 여러 대기열에서 실행될 수도 있지만 여러 작업 항목을 제출하고 작업이 완료되면 추적 할 수 있습니다. 이 작업은 지정된 모든 작업이 완료 될 때까지 진행할 수 없을 때 도움이 될 수 있습니다.
+
+### 7- Please explain types of notifications.
+원격 및 로컬: 원격 알림을 사용하려면 서버에 연결해야합니다. 
+로컬 알림: 로컬 알림은 기기에서 발생합니다.
+
+### 11- What is the difference ANY and ANYOBJECT ?
+1. Any: func 및 optional을 포함하여 모든 유형의 인스턴스를 나타낼 수 있습니다.
+2. AnyObject: 모든 클래스 유형의 인스턴스를 나타낼 수 있습니다.
+
+### 24- What’s the difference optional between nil and .None?
+다른 점이 없다. 
+
+### 39- Explain the difference between atomic and nonatomic synthesized properties
+1. atomic : 기본 동작입니다. 오브젝트가 원자 적으로 선언되면 스레드로부터 안전합니다. thread-safe는, 그 클래스의 특정의 인스턴스의 1 개의 thread 만, 그 객체를 제어 할 수있는 것을 의미합니다.
+2. nonatomic : 스레드로부터 안전하지 않습니다. 비 원자 속성 속성을 사용하여 합성 된 접근자가 단순히 값을 직접 설정하거나 반환하도록 지정할 수 있습니다.이 경우 동일한 값이 다른 스레드에서 동시에 액세스되는 경우 어떤 일이 발생하는지 보장하지 않습니다. 이러한 이유 때문에 원자가 아닌 속성에 액세스하는 것이 더 빠릅니다.
