@@ -145,3 +145,20 @@ KVO와 NotificationCenter의 가장 큰 차이점은 KVO가 특정 개체에 대
 ### 49- What’s the difference between a xib and a storyboard?
 1. xib는 하나의 View 또는 View Controller 화면을 정의
 2. Storyboard는 많은 View Controller를 보여주고 그 사이의 관계를 보여줍니다.
+
+### 11- What is difference Layout Margins and Directional Layout Margins?
+1. Layout Margins 속성은 UIEdgeInsets 유형이며 뷰의 프레임에 적용될 때 뷰의 여백을 정의하는 위쪽, 왼쪽, 아래쪽 및 오른쪽 Inset를 정의합니다.
+2. Directional Layout Right-To-Left (RTL) 언어를 인식하는 여백. 레이아웃 앵커로 제약 조건을 만들 때 사용되는 패턴을 따릅니다.
+
+### 15- Explain rethrows keyword
+rethrows 키워드는 외부 함수가 전달 된 클로저가 현재 범위로 전달되는 오류를 throw하는 경우에만 throwing 함수임을 컴파일러에 나타냅니다.
+
+### 16- Explain @objc inference
+@objc로 Swift 선언에 태그를 추가하여 Objective-C에서 사용할 수 있음을 나타낼 수 있습니다
+
+### 19- Explain Content offset
+![](http://appleharikyu.jp/iphone/wp-content/uploads/2018/07/UIScroll%E3%81%AE%E3%83%95%E3%82%9A%E3%83%AD%E3%83%8F%E3%82%9A%E3%83%86%E3%82%A3.png)
+
+### 24- What is the difference between Array vs NSArray ?
+1. Array 한 가지 유형의 데이터 만 저장
+2. NSArray는 다른 유형의 데이터를 보유 할 수 있습니다. NSArray 불변의 참조 형식입니다.
