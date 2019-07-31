@@ -162,3 +162,18 @@ rethrows 키워드는 외부 함수가 전달 된 클로저가 현재 범위로 
 ### 24- What is the difference between Array vs NSArray ?
 1. Array 한 가지 유형의 데이터 만 저장
 2. NSArray는 다른 유형의 데이터를 보유 할 수 있습니다. NSArray 불변의 참조 형식입니다.
+
+### copy vs retain?
+1. retain: 을 호출하면 보유 수는 1만큼 증가합니다. 목표의 보유 수가 0에 도달하면 오브젝트가 할당 해제되고 메모리에서 해제됩니다.
+2. copy: 해당 오브젝트의 복제본이 작성됩니다.
+
+### NSObject -> UIButton 설명
+UIButton -> UIControl -> UIView -> UIResponder -> NSObject
+
+### indirect keyword
+다음과 같은 재귀 열거 사례를 허용하는 간접 키워드입니다.
+```
+enum List<T> {
+  indirect case node(T, List<T>)
+}
+```
