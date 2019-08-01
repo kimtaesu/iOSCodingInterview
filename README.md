@@ -230,3 +230,9 @@ View와 Presenter가 1:1로 강한 의존성을 가지게 됩니다.
 
 #### Thread 
 한 프로세스 내에서 동작되는 여러 실행 흐름으로 프로세스 내의 주소 공간이나 자원을 공유할 수 있다.
+
+### ResponderChain
+UIResponder 클래스의 객체로 서브클래스로는 UIView, UIViewController, UIApplication 등이 있습니다.
+이벤트가 발생하게 되면 앱은 해당 이벤트를 처리할 수 있는 가장 적절한 응답자 객체에게 이벤트 데이터를 전달하고 이를 *first responder*라 합니다.
+<img src="https://docs-assets.developer.apple.com/published/7c21d852b9/f17df5bc-d80b-4e17-81cf-4277b1e0f6e4.png" alt="alt text" width="600" height="whatever">
+만일 UITextField에 이벤트가 들어왔다고 가정했을 때 UITextField가 해당 이벤트를 처리하지 않는다면 그 이벤트 객체는 부모 뷰인 UIView에게 넘어가고 역시 처리되지 않으면 UIViewController , UIWindow 순으로 거슬러 올라가며 자신을 처리해줄 응답자 객체를 찾습니다. 하지만 끝까지 처리되지 않은 이벤트들은 버려지게 됩니다.
