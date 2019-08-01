@@ -250,3 +250,10 @@ Hit Testing은 간단히 설명하자면 터치 이벤트가 발생한 뷰를 �
 ### iOS 13
 1. 다크모드
 2. 애플 로그인
+
+### AssociationPolicy
+* OBJC_ASSOCIATION_ASSIGN: 추가된 객체와 약한 참조
+* OBJC_ASSOCIATION_RETAIN_NONATOMIC: 추가된 객체와 강력 참조 및 nonatomatic으로 설정
+* OBJC_ASSOCIATION_COPY_NONATOMIC: 추가된 객체를 복사 및 nonatomatic으로 설정
+* OBJC_ASSOCIATION_RETAIN: 추가된 객체와 강력 참조 및 atomatic으로 설정
+* OBJC_ASSOCIATION_COPY: 추가된 객체를 복사 및 atomatic으로 설정
