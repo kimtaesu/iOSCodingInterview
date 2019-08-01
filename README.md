@@ -224,3 +224,9 @@ View와 Presenter가 1:1로 강한 의존성을 가지게 됩니다.
 
 <img src="https://magi82.github.io/images/2017-2-24-android-mvc-mvp-mvvm/mvvm.png" alt="alt text" width="400" height="whatever">
 
+### Process VS Thread
+#### Process
+프로세스는 실행 중인 프로그램으로 디스크로부터 메모리에 적재되어 CPU 의 할당을 받을 수 있는 것을 말한다. 운영체제로부터 주소 공간, 파일, 메모리 등을 할당받으며 이것들을 총칭하여 프로세스라고 한다.
+
+#### Thread 
+한 프로세스 내에서 동작되는 여러 실행 흐름으로 프로세스 내의 주소 공간이나 자원을 공유할 수 있다.
