@@ -192,7 +192,35 @@ Operation and OperationQueue는 GCD 위에 구축됩니다.
 * Operation: GCD에 비해 약간의 오버헤드가 추가되지만 작업간의 종속성을 추가하고 다시 사용, 취소 일시 중단을 할 수 있습니다.
 
 ### MVC MVP MVVM
-<img src="https://magi82.github.io/images/2017-2-24-android-mvc-mvp-mvvm/mvc.png" alt="alt text" width="250" height="whatever">
-<img src="https://magi82.github.io/images/2017-2-24-android-mvc-mvp-mvvm/mvp.png" alt="alt text" width="250" height="whatever">
-<img src="https://magi82.github.io/images/2017-2-24-android-mvc-mvp-mvvm/mvvm.png" alt="alt text" width="250" height="whatever">
+
+#### MVC 
+1. Controller로 사용자의 입력이 들어옵니다.
+2. Controller는 Model을 데이터 업데이트 및 불러오고
+3. Model은 해당 데이터를 보여줄 View를 선택해서 화면에 보여주게 됩니다.
+
+MVC는 단점이 있습니다. View와 Model이 서로 의존적이라는 점입니다.
+
+<img src="https://magi82.github.io/images/2017-2-24-android-mvc-mvp-mvvm/mvc.png" alt="alt text" width="400" height="whatever">
+
+#### MVP
+1. View로 사용자의 입력이 들어옵니다.
+2. View는 Presenter에 작업 요청을 합니다.
+3. Presenter에서 필요한 데이터를 Model에 요청 합니다.
+4. Model은 Presenter에 필요한 데이터를 응답 합니다.
+5. Presenter는 View에 데이터를 응답 합니다.
+6. View는 Presenter로부터 받은 데이터로 화면에 보여주게 됩니다.
+
+이런 MVP도 단점이 있습니다. View와 Model은 의존성이 없는 대신
+View와 Presenter가 1:1로 강한 의존성을 가지게 됩니다.
+
+<img src="https://magi82.github.io/images/2017-2-24-android-mvc-mvp-mvvm/mvp.png" alt="alt text" width="400" height="whatever">
+
+#### MVVM
+1. View에 입력이 들어오면 Command 패턴으로 ViewModel에 명령을 합니다.
+2. ViewModel은 필요한 데이터를 Model에 요청 합니다.
+3. Model은 ViewModel에 필요한 데이터를 응답 합니다.
+4. ViewModel은 응답 받은 데이터를 가공해서 저장 합니다.
+5. View는 ViewModel과의 Data Binding으로 인해 자동으로 갱신 됩니다.
+
+<img src="https://magi82.github.io/images/2017-2-24-android-mvc-mvp-mvvm/mvvm.png" alt="alt text" width="400" height="whatever">
 
