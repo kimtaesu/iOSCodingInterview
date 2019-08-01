@@ -257,3 +257,7 @@ Hit Testing은 간단히 설명하자면 터치 이벤트가 발생한 뷰를 �
 * OBJC_ASSOCIATION_COPY_NONATOMIC: 추가된 객체를 복사 및 nonatomatic으로 설정
 * OBJC_ASSOCIATION_RETAIN: 추가된 객체와 강력 참조 및 atomatic으로 설정
 * OBJC_ASSOCIATION_COPY: 추가된 객체를 복사 및 atomatic으로 설정
+
+### CoreData vs Sqlite
+[여기](https://www.letmecompile.com/%EC%BD%94%EC%96%B4%EB%8D%B0%EC%9D%B4%ED%84%B0core-data%EC%99%80-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%9D%98-%EC%B0%A8%EC%9D%B4/)
+메모리에 로딩할 필요없이 테이블 삭제 및 편집 가능	무조건 메모리에 로드해야 작업 가능
