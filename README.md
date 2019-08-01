@@ -184,3 +184,9 @@ enum List<T> {
   indirect case node(T, List<T>)
 }
 ```
+
+### Operation VS GCD 
+Operation and OperationQueue는 GCD 위에 구축됩니다.
+
+* GCD: 스케줄하지 않습니다. 시스템이 일정을 관리합니다
+* Operation: GCD에 비해 약간의 오버헤드가 추가되지만 작업간의 종속성을 추가하고 다시 사용, 취소 일시 중단을 할 수 있습니다.
