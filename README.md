@@ -112,6 +112,13 @@ Classes: reference type
 4. *Background*: 앱이 백그라운드에서 실행되고 코드가 실행 중입니다.
 5. *Suspended*: 앱이 백그라운드에 있지만 코드가 실행되고 있지 않습니다.
 
+application(_:didFinishLaunching:) - 앱이 처음 시작될 때 실행
+applicationWillResignActive: - 앱이 active 에서 inactive로 이동될 때 실행 
+applicationDidEnterBackground: - 앱이 background 상태일 때 실행 
+applicationWillEnterForeground: - 앱이 background에서 foreground로 이동 될때 실행 (아직 foreground에서 실행중이진 않음)
+applicationDidBecomeActive: - 앱이 active상태가 되어 실행 중일 때
+applicationWillTerminate: - 앱이 종료될 때 실행
+
 ### 2- What kind of JSONSerialization have ReadingOptions?
 1. *mutableContainers*: arrays and dictionaries 이 상수가 아닌 변수 객체로 만들어 지도록 지정합니다.
 2. *mutableLeaves*: JSON 객체 그래프의 리프 문자열을 variable String의 인스턴스로 생성하도록 지정합니다.
