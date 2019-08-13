@@ -257,3 +257,16 @@ View가 나타나기 전이기 때문에 **무거운 작업이 있으면 안됨*
 2. Lock
 3. Serial Queue
 4. Concurrent Queue Barrier
+
+### Struct VS Class
+Struct
+* call by value (값)
+* Stack memory에 할당되기 때문에 속도가 빠름
+* 다른 Struct 상속 불가능
+Class
+* call by reference (참조)
+* Heap memory에 할당되기 때문에 속도가 느림
+* deinitializer 존재합니다. 
+* 다른 Class를 상속 가능
+
+이외에도 많은 차이점이 있습니다.
