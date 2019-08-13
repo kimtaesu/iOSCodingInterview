@@ -239,6 +239,7 @@ View와 Presenter가 1:1로 강한 의존성을 가지게 됩니다.
 
 ### ResponderChain
 [이동건님 블로그](https://baked-corn.tistory.com/129)
+
 UIResponder 클래스의 객체로 서브클래스로는 UIView, UIViewController, UIApplication 등이 있습니다.
 이벤트가 발생하게 되면 앱은 해당 이벤트를 처리할 수 있는 가장 적절한 응답자 객체에게 이벤트 데이터를 전달하고 이를 *first responder*라 합니다.
 <img src="https://docs-assets.developer.apple.com/published/7c21d852b9/f17df5bc-d80b-4e17-81cf-4277b1e0f6e4.png" alt="alt text" width="600" height="whatever">
@@ -246,6 +247,7 @@ UIResponder 클래스의 객체로 서브클래스로는 UIView, UIViewControlle
 
 ### HitTest 
 [Zedd님 블로그](https://zeddios.tistory.com/536)
+
 Hit Testing은 간단히 설명하자면 터치 이벤트가 발생한 뷰를 찾는 행위입니다. 조금 더 설명을 덧붙이자면 터치 이벤트가 발생한 최상단 뷰를 찾는 행위입니다. 그리고 그렇게 찾은 뷰가 해당 이벤트를 처리할 수 있는 첫 번째 뷰, 즉 First Responder가 되는 것입니다.
 <img src="http://d33wubrfki0l68.cloudfront.net/60d215400d2340e2334016ea6914aef24cfe6939/d4938/images/hit-test-depth-first-traversal.png" alt="alt text" width="600" height="whatever">
 1. 가장 먼저 뷰 계층에 있어서 최상위인 UIWindow가 hitTest(_:with:) 메소드를 호출합니다. 그리고 내부적으로 point(inside:with:) 메소드로 현재 터치 이벤트가 발생한 지점이 UIWindow의 내부인지를 판단합니다. 내부이기 때문에 true 를 반환하고 그의 subviews인 MainView의 검사를 시작합니다.
@@ -288,3 +290,19 @@ Hit Testing은 간단히 설명하자면 터치 이벤트가 발생한 뷰를 �
 
 ###### viewDidLayoutSubviews
 모든 하위 뷰가 배치되면 호출됩니다.
+
+### Viewwillappear vs ViewDidappear
+각 이벤트에서 무엇을 수행하면 좋을지? 
+[stackoverflow](https://stackoverflow.com/questions/5630649/what-is-the-difference-between-viewwillappear-and-viewdidappear)
+###### ViewWillAppear
+View가 나타나기 전이기 때문에 **무거운 작업이 있으면 안됨**
+
+###### ViewDidAppear
+실행 시간이 오래 걸릴 수 있는 새 스레드를 시작 (Network, IO)
+
+### RaceCondition 해결방법
+[Medium](https://medium.com/swiftcairo/avoiding-race-conditions-in-swift-9ccef0ec0b26)
+1. Double Checking
+2. Lock
+3. Serial Queue
+4. Concurrent Queue Barrier
