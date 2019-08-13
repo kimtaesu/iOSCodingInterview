@@ -200,38 +200,6 @@ Operation and OperationQueue는 GCD 위에 구축됩니다.
 * GCD: 스케줄하지 않습니다. 시스템이 일정을 관리합니다
 * Operation: GCD에 비해 약간의 오버헤드가 추가되지만 작업간의 종속성을 추가하고 다시 사용, 취소 일시 중단을 할 수 있습니다.
 
-### MVC MVP MVVM
-[마기님 블로그](https://magi82.github.io/android-mvc-mvp-mvvm/)
-#### MVC 
-1. Controller로 사용자의 입력이 들어옵니다.
-2. Controller는 Model을 데이터 업데이트 및 불러오고
-3. Model은 해당 데이터를 보여줄 View를 선택해서 화면에 보여주게 됩니다.
-
-MVC는 단점이 있습니다. View와 Model이 서로 의존적이라는 점입니다.
-
-<img src="https://magi82.github.io/images/2017-2-24-android-mvc-mvp-mvvm/mvc.png" alt="alt text" width="400" height="whatever">
-
-#### MVP
-1. View로 사용자의 입력이 들어옵니다.
-2. View는 Presenter에 작업 요청을 합니다.
-3. Presenter에서 필요한 데이터를 Model에 요청 합니다.
-4. Model은 Presenter에 필요한 데이터를 응답 합니다.
-5. Presenter는 View에 데이터를 응답 합니다.
-6. View는 Presenter로부터 받은 데이터로 화면에 보여주게 됩니다.
-
-이런 MVP도 단점이 있습니다. View와 Model은 의존성이 없는 대신
-View와 Presenter가 1:1로 강한 의존성을 가지게 됩니다.
-
-<img src="https://magi82.github.io/images/2017-2-24-android-mvc-mvp-mvvm/mvp.png" alt="alt text" width="400" height="whatever">
-
-#### MVVM
-1. View에 입력이 들어오면 Command 패턴으로 ViewModel에 명령을 합니다.
-2. ViewModel은 필요한 데이터를 Model에 요청 합니다.
-3. Model은 ViewModel에 필요한 데이터를 응답 합니다.
-4. ViewModel은 응답 받은 데이터를 가공해서 저장 합니다.
-5. View는 ViewModel과의 Data Binding으로 인해 자동으로 갱신 됩니다.
-
-<img src="https://magi82.github.io/images/2017-2-24-android-mvc-mvp-mvvm/mvvm.png" alt="alt text" width="400" height="whatever">
 
 ### Process VS Thread
 #### Process
@@ -239,28 +207,6 @@ View와 Presenter가 1:1로 강한 의존성을 가지게 됩니다.
 
 #### Thread 
 한 프로세스 내에서 동작되는 여러 실행 흐름으로 프로세스 내의 주소 공간이나 자원을 공유할 수 있다.
-
-### ResponderChain
-[이동건님 블로그](https://baked-corn.tistory.com/129)
-
-UIResponder 클래스의 객체로 서브클래스로는 UIView, UIViewController, UIApplication 등이 있습니다.
-이벤트가 발생하게 되면 앱은 해당 이벤트를 처리할 수 있는 가장 적절한 응답자 객체에게 이벤트 데이터를 전달하고 이를 *first responder*라 합니다.
-<img src="https://docs-assets.developer.apple.com/published/7c21d852b9/f17df5bc-d80b-4e17-81cf-4277b1e0f6e4.png" alt="alt text" width="600" height="whatever">
-
-만일 UITextField에 이벤트가 들어왔다고 가정했을 때 UITextField가 해당 이벤트를 처리하지 않는다면 그 이벤트 객체는 부모 뷰인 UIView에게 넘어가고 역시 처리되지 않으면 UIViewController , UIWindow 순으로 거슬러 올라가며 자신을 처리해줄 응답자 객체를 찾습니다. 하지만 끝까지 처리되지 않은 이벤트들은 버려지게 됩니다.
-
-### HitTest 
-[Zedd님 블로그](https://zeddios.tistory.com/536)
-
-Hit Testing은 간단히 설명하자면 터치 이벤트가 발생한 뷰를 찾는 행위입니다. 조금 더 설명을 덧붙이자면 터치 이벤트가 발생한 최상단 뷰를 찾는 행위입니다. 그리고 그렇게 찾은 뷰가 해당 이벤트를 처리할 수 있는 첫 번째 뷰, 즉 First Responder가 되는 것입니다.
-<img src="http://d33wubrfki0l68.cloudfront.net/60d215400d2340e2334016ea6914aef24cfe6939/d4938/images/hit-test-depth-first-traversal.png" alt="alt text" width="600" height="whatever">
-
-1. 가장 먼저 뷰 계층에 있어서 최상위인 UIWindow가 hitTest(_:with:) 메소드를 호출합니다. 그리고 내부적으로 point(inside:with:) 메소드로 현재 터치 이벤트가 발생한 지점이 UIWindow의 내부인지를 판단합니다. 내부이기 때문에 true 를 반환하고 그의 subviews인 MainView의 검사를 시작합니다.
-2. MainView 역시 hitTest(_:with:) 메소드를 호출하여 1번과 같은 과정을 진행합니다. 역시 true가 반환되므로 MainView의 subviews들을 순회하며 검사하게 되는데 Sibling 관계의 깊이 순서에 의해 viewC를 가장 먼저 검사합니다.
-3. 하지만 터치한 위치를 보면 해당 지점은 viewC에 속하지 않습니다. 그렇기 때문에 point(inside:with:) 메소드는 false를 반환하고 hitTest(_:with:) 메소드는 nil을 반환합니다. 그로인해 viewC의 subviews들의 검사는 생략됩니다. 그리고 그 Sibling 관계에서 다음 순서인 viewB를 검사하게 됩니다.
-4. viewB는 hitTest(_:with:)와 point(inside:with:) 검사를 통과하기 때문에 subviews의 검사가 진행됩니다. 그리고 Sibling 관계의 깊이 순서에 의해 viewB.2를 먼저 검사하게 됩니다.
-5. 하지만 3번의 과정과 마찬가지로 viewB.2는 터치 지점을 포함하지 않기 때문에 지나치게 되고 viewB.1 뷰의 검사가 진행됩니다.
-6. 마침내 viewB.1의 검사가 진행되고 위와 같은 과정으로 viewB.1이 터치 이벤트가 발생한 최상단 뷰로 판정됩니다.
 
 ### iOS 13
 1. 다크모드
