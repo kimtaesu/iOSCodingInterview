@@ -276,3 +276,15 @@ Hit Testing은 간단히 설명하자면 터치 이벤트가 발생한 뷰를 �
 4. utility 
 5. background 
 6. unspecified
+
+### viewDidLayoutSubviews vs viewWillLayoutSubviews
+각 이벤트에서 무엇을 수행하면 좋을지? 
+[stackoverflow](https://stackoverflow.com/questions/23457391/when-are-the-viewwilllayoutsubviews-and-viewdidlayoutsubviews-methods-called)
+
+###### viewWillLayoutSubviews
+* View Load, 회전 이벤트, 또는 자식 뷰 컨트롤러의 크기가 부모에 의해 변경 될 때 발생합니다
+* 업데이트하기 전에 업데이트 해야하는 것이 있으면 여기에서 수행해야합니다.
+> 제약 조건을 업데이트하면 다른 레이아웃 패스가 발생할 수 있으므로 일반적으로 여기서 **제약 조건을 업데이트하지 않아야**합니다.
+
+###### viewDidLayoutSubviews
+모든 하위 뷰가 배치되면 호출됩니다.
