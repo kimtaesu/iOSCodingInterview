@@ -1,3 +1,6 @@
+##[50 iOS Interview Questions And Answers](https://medium.com/@duruldalkanat/ios-interview-questions-13840247a57a)
+Part 1,2,3,4,5 에서 잘 모르는 부분을 정리하였습니다.
+
 ### 4- What is made up of NSError object? 
 * a domain, 
 * an error code
@@ -243,6 +246,7 @@ View와 Presenter가 1:1로 강한 의존성을 가지게 됩니다.
 UIResponder 클래스의 객체로 서브클래스로는 UIView, UIViewController, UIApplication 등이 있습니다.
 이벤트가 발생하게 되면 앱은 해당 이벤트를 처리할 수 있는 가장 적절한 응답자 객체에게 이벤트 데이터를 전달하고 이를 *first responder*라 합니다.
 <img src="https://docs-assets.developer.apple.com/published/7c21d852b9/f17df5bc-d80b-4e17-81cf-4277b1e0f6e4.png" alt="alt text" width="600" height="whatever">
+
 만일 UITextField에 이벤트가 들어왔다고 가정했을 때 UITextField가 해당 이벤트를 처리하지 않는다면 그 이벤트 객체는 부모 뷰인 UIView에게 넘어가고 역시 처리되지 않으면 UIViewController , UIWindow 순으로 거슬러 올라가며 자신을 처리해줄 응답자 객체를 찾습니다. 하지만 끝까지 처리되지 않은 이벤트들은 버려지게 됩니다.
 
 ### HitTest 
@@ -250,6 +254,7 @@ UIResponder 클래스의 객체로 서브클래스로는 UIView, UIViewControlle
 
 Hit Testing은 간단히 설명하자면 터치 이벤트가 발생한 뷰를 찾는 행위입니다. 조금 더 설명을 덧붙이자면 터치 이벤트가 발생한 최상단 뷰를 찾는 행위입니다. 그리고 그렇게 찾은 뷰가 해당 이벤트를 처리할 수 있는 첫 번째 뷰, 즉 First Responder가 되는 것입니다.
 <img src="http://d33wubrfki0l68.cloudfront.net/60d215400d2340e2334016ea6914aef24cfe6939/d4938/images/hit-test-depth-first-traversal.png" alt="alt text" width="600" height="whatever">
+
 1. 가장 먼저 뷰 계층에 있어서 최상위인 UIWindow가 hitTest(_:with:) 메소드를 호출합니다. 그리고 내부적으로 point(inside:with:) 메소드로 현재 터치 이벤트가 발생한 지점이 UIWindow의 내부인지를 판단합니다. 내부이기 때문에 true 를 반환하고 그의 subviews인 MainView의 검사를 시작합니다.
 2. MainView 역시 hitTest(_:with:) 메소드를 호출하여 1번과 같은 과정을 진행합니다. 역시 true가 반환되므로 MainView의 subviews들을 순회하며 검사하게 되는데 Sibling 관계의 깊이 순서에 의해 viewC를 가장 먼저 검사합니다.
 3. 하지만 터치한 위치를 보면 해당 지점은 viewC에 속하지 않습니다. 그렇기 때문에 point(inside:with:) 메소드는 false를 반환하고 hitTest(_:with:) 메소드는 nil을 반환합니다. 그로인해 viewC의 subviews들의 검사는 생략됩니다. 그리고 그 Sibling 관계에서 다음 순서인 viewB를 검사하게 됩니다.
