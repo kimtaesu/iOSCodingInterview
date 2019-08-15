@@ -272,3 +272,12 @@ Class
 * 다른 Class를 상속 가능
 
 이외에도 많은 차이점이 있습니다.
+
+
+### OOP -> POP 로 넘어가게된 계기
+(링크)[http://blog.naver.com/PostView.nhn?blogId=jdub7138&logNo=220968251035&beginTime=0&jumpingVid=&from=search&redirect=Log&widgetTypeCall=true]
+
+Class는 상속이 가능하고 Struct, Enum 은 상속이 불가능하기 때문에 
+`데이터 구조`를 보통 Class로 작성되었음
+
+Class 는 참조 타입이기 때문에 멀티 스레딩 환경에서 값이 꼬이는 경우가 많았음.
