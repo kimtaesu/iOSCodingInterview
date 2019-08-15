@@ -275,7 +275,7 @@ Class
 
 
 ### OOP -> POP 로 넘어가게된 계기
-(링크)[http://blog.naver.com/PostView.nhn?blogId=jdub7138&logNo=220968251035&beginTime=0&jumpingVid=&from=search&redirect=Log&widgetTypeCall=true]
+[링크](http://blog.naver.com/PostView.nhn?blogId=jdub7138&logNo=220968251035&beginTime=0&jumpingVid=&from=search&redirect=Log&widgetTypeCall=true)
 
 Class는 상속이 가능하고 Struct, Enum 은 상속이 불가능하기 때문에 
 `데이터 구조`를 보통 Class로 작성되었음
