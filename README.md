@@ -281,3 +281,8 @@ Class는 상속이 가능하고 Struct, Enum 은 상속이 불가능하기 때�
 `데이터 구조`를 보통 Class로 작성되었음
 
 Class 는 참조 타입이기 때문에 멀티 스레딩 환경에서 값이 꼬이는 경우가 많았음.
+
+### Any VS AnyObject VS NSObject
+[여기요](https://craiggrummitt.com/2016/09/16/any-vs-anyobject-vs-nsobject-in-swift-3/)
+<img src="https://craiggrummitt.files.wordpress.com/2016/09/anyanyobject.png?w=419&h=419&zoom=2" alt="alt text" width="400" >
+
