@@ -285,6 +285,3 @@ Class 는 참조 타입이기 때문에 멀티 스레딩 환경에서 값이 꼬
 ### Any VS AnyObject VS NSObject
 [여기요](https://craiggrummitt.com/2016/09/16/any-vs-anyobject-vs-nsobject-in-swift-3/)
 <img src="https://craiggrummitt.files.wordpress.com/2016/09/anyanyobject.png?w=419&h=419&zoom=2" alt="alt text" width="400" >
-
-### lazy var 에서의 Closure 순환 참조가 발생하는 케이스와 발생하지 않는 케이스 정리
-[Closuer 순환 참조](https://github.com/jinuman/TIL/blob/master/swift/swift-closure-retaincycle.md)
